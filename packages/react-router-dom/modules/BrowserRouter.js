@@ -17,8 +17,12 @@ class BrowserRouter extends React.Component {
 
   history = createHistory(this.props)
 
+    disableRouter(bool= true) {
+      this.disabled = bool;
+    }
+
   render() {
-    return <Router history={this.history} children={this.props.children} disabled={!!this.props.disabled} />
+    return <Router history={this.history} children={this.props.children} isDisabled={ () => this.disabled } />
   }
 }
 

@@ -58,9 +58,9 @@ class Router extends React.Component {
     // location in componentWillMount. This happens e.g. when doing
     // server rendering using a <StaticRouter>.
     this.unlisten = history.listen(() => {
-      const { disabled } = this.props;
+      const { isDisabled } = this.props;
 
-      if(disabled) {
+      if(isDisabled instanceof Function && isDisabled()) {
         return;
       }
 
